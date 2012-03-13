@@ -1,0 +1,33 @@
+﻿mustache.js是一个js的模板引擎，是logic-less的。
+这是mustache.js的jquery版本，当然稍微做了一些修改。
+
+原版看这里：https://github.com/janl/mustache.js/。
+
+使用的是jquery的mustache生成版，可以自己下载mustache.js的源码包，安装了ruby可以用下面方法生成jquery.mustache.js：
+1.cd到源码包目录下
+2.运行rake jquery 
+3.在源码包目录下生成了jquery.mustache.js这个文件
+
+我给jquery.mustache.js做了简单的修改，加了一些方法，改名为jquery.mustache.yuyingjian.js。
+
+使用方法：
+所有的模板都必须按下述方法定义到当前的页面中
+<script templateName="tmpl_name" type="text/mustache">
+<ul>
+{{#list}}
+<li>{{articleTitle}}</li>
+{{/list}}
+</ul>
+templateName是模板名称。type必须是text/mustache。
+
+然后就可以使用了。如果是想直接得到渲染后的模板的html，如下使用：
+$.ymustacheRender("tmpl_name", {"list":[{"articleTitle":"文章1"},{"articleTitle":"文章2"}]});
+如果有个id是list的div，并且模板渲染以后的html要放入这个div，则如下使用方式：
+$("#list").ymustacheRender("tmpl_name", {"list":[{"articleTitle":"文章1"},{"articleTitle":"文章2"}]});
+
+如果是模板中带有嵌套模板，那么请时候相对应的ymustacheRenderWithPartial方法。
+
+具体的例子请看example.html。要知道是怎么工作的，请查看src下的jquery.mustache.yuyingjian.js。
+
+有待完善：
+目前不支持加载外部文件定义的模板。
