@@ -572,7 +572,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
    */
   $.ymustacheCacheLocalTemplates = function() {
     $("script[type=\"text/mustache\"]").each(function(i, el){
-      templatesCache[$(this).attr("templateName")] = $(this).html().trim();
+      templatesCache[$(this).attr("id")] = $(this).html().trim();
     });
   };
 

@@ -33,7 +33,7 @@ yuyingjian 2012-3-12晚 翻译
 </head>
 <body>
 <!--1.使用方式-->
-<script id="tmpl-1" templateName="tmpl-1" type="text/mustache">
+<script id="tmpl-1" type="text/mustache">
 	{{name}}是{{what}}！
 </script>
 <div class="example">
@@ -75,7 +75,7 @@ $(function(){
 	或者 在变量前面加& 比如 {{&name}}
 	看下面的例子
 -->
-<script id="tmpl-2" templateName="tmpl-2" type="text/mustache">
+<script id="tmpl-2" type="text/mustache">
 <ul>
 	<li>{{name}}</li>
 	<li>{{age}}</li>
@@ -102,7 +102,7 @@ $(function(){
 <!--
 	javascript的“.”可以用来访问对象的属性。如下的例子：
 -->
-<script id="tmpl-3" templateName="tmpl-3" type="text/mustache">
+<script id="tmpl-3" type="text/mustache">
 <ul>
 	<li>first name：{{name.firstname}}</li>
 	<li>last name：{{name.lastname}}</li>
@@ -136,7 +136,7 @@ $(function(){
 	如果person的值是null、undefined或者false，
 	或者是一个空列表，那么block不会被渲染。
 -->
-<script id="tmpl-4" templateName="tmpl-4" type="text/mustache">
+<script id="tmpl-4" type="text/mustache">
 Shown.
 {{#nothin}}
 Never shown!
@@ -161,7 +161,7 @@ $(function(){
 	如果person变量存在，而且不是null、undefined、false，而且也不是空列表，
 	那么会被渲染一到多次。列表中的项会被依次遍历，然后逐个渲染到模板中。
 -->
-<script id="tmpl-5" templateName="tmpl-5" type="text/mustache">
+<script id="tmpl-5" type="text/mustache">
 <ul>
 {{#stooges}}
 <li>{{name}}</li>
@@ -189,7 +189,7 @@ $(function(){
 <!--
 	如果变量是一个数组，可以使用 . 符号来引用当前被枚举的项，如下：
 -->
-<script id="tmpl-6" templateName="tmpl-6" type="text/mustache">
+<script id="tmpl-6" type="text/mustache">
 <ul>
 {{#musketeers}}
 <li>{{.}}</li>
@@ -213,7 +213,7 @@ $(function(){
 <!--
 	如果变量是一个方法，则会在每个枚举的项上调用，如下：
 -->
-<script id="tmpl-7" templateName="tmpl-7" type="text/mustache">
+<script id="tmpl-7" type="text/mustache">
 <ul>
 {{#beatles}}
 <li>{{name}}</li>
@@ -250,7 +250,7 @@ $(function(){
 	这个方法的第一个参数text是未渲染的代码块模板html的字符串
 	第二个参数render则是渲染方法 它使用当前data中包含的变量渲染这个text
 -->
-<script id="tmpl-8" templateName="tmpl-8" type="text/mustache">
+<script id="tmpl-8" type="text/mustache">
 {{#bold}}Hi {{name}}.{{zerg}}{{/bold}}
 </script>
 <div class="example">
@@ -285,7 +285,7 @@ $(function(){
 	这种情况下使用{{^section}}代替{{#section}}
 	当section的值是null、undefined或者false或者是空列表的时候渲染。如下：
 -->
-<script id="tmpl-9" templateName="tmpl-9" type="text/mustache">
+<script id="tmpl-9" type="text/mustache">
 {{#repos}}<b>{{name}}</b>{{/repos}}
 {{^repos}}No repos :({{/repos}}
 </script>
@@ -325,16 +325,16 @@ $(function(){
 	后来看了下下面的英文注释写的很清楚
 	In mustache.js an object of partials may be passed as the third argument to Mustache.render. The object should be keyed by the name of the partial, and its value should be the partial text.
 -->
-<script id="tmpl-10-base" templateName="tmpl-10-base" type="text/mustache">
+<script id="tmpl-10-base" type="text/mustache">
 {{#names}}
   {{> user}}
 {{/names}}
 </script>
-<script id="tmpl-10-user" templateName="user" type="text/mustache">
+<script id="user" type="text/mustache">
 <li>{{name}} || {{> tpl}}</li>
 </script>
 
-<script id="tmpl-10-tpl" templateName="tpl" type="text/mustache">
+<script id="tpl" type="text/mustache">
 {{zerg}}
 </script>
 <div class="example">
@@ -367,13 +367,13 @@ $(function(){
 <!--2-2-7设置分隔符 这个翻译也正确吧 额。。。英文难翻译 其实就是换默认标签样式
 	注意额 {{=<% %>=}} 把标签样式换成了 <%#names%>
 -->
-<script id="tmpl-11-base" templateName="tmpl-11-base" type="text/mustache">
+<script id="tmpl-11-base" type="text/mustache">
 {{=<% %>=}}
 <%#names%>
   <%> tmpl-11-user%>
 <%/names%>
 </script>
-<script id="tmpl-11-user" templateName="tmpl-11-user" type="text/mustache">
+<script id="tmpl-11-user" type="text/mustache">
 {{=<% %>=}}
 <li><%name%></li>
 </script>

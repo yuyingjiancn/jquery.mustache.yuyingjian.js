@@ -12,7 +12,7 @@
 
 使用方法：
 所有的模板都必须按下述方法定义到当前的页面中
-<script templateName="tmpl_name" type="text/mustache">
+<script id="tmpl_name" type="text/mustache">
 <ul>
 {{#list}}
 <li>{{articleTitle}}</li>
